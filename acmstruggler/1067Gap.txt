@@ -1,0 +1,140 @@
+Problem Description
+Let's play a card game called Gap. 
+You have 28 cards labeled with two-digit numbers. The first digit (from 1 to 4) represents the suit of the card, and the second digit (from 1 to 7) represents the value of the card.
+
+First, you shu2e the cards and lay them face up on the table in four rows of seven cards, leaving a space of one card at the extreme left of each row. The following shows an example of initial layout.
+
+
+
+Next, you remove all cards of value 1, and put them in the open space at the left end of the rows: "11" to the top row, "21" to the next, and so on.
+
+Now you have 28 cards and four spaces, called gaps, in four rows and eight columns. You start moving cards from this layout.
+
+
+
+At each move, you choose one of the four gaps and fill it with the successor of the left neighbor of the gap. The successor of a card is the next card in the same suit, when it exists. For instance the successor of "42" is "43", and "27" has no successor.
+
+In the above layout, you can move "43" to the gap at the right of "42", or "36" to the gap at the right of "35". If you move "43", a new gap is generated to the right of "16". You cannot move any card to the right of a card of value 7, nor to the right of a gap.
+
+The goal of the game is, by choosing clever moves, to make four ascending sequences of the same suit, as follows.
+
+
+
+Your task is to find the minimum number of moves to reach the goal layout.
+ 
+
+Input
+The input starts with a line containing the number of initial layouts that follow.
+
+Each layout consists of five lines - a blank line and four lines which represent initial layouts of four rows. Each row has seven two-digit numbers which correspond to the cards.
+ 
+
+Output
+For each initial layout, produce a line with the minimum number of moves to reach the goal layout. Note that this number should not include the initial four moves of the cards of value 1. If there is no move sequence from the initial layout to the goal layout, produce "-1".
+ 
+
+Sample Input
+4
+
+12 13 14 15 16 17 21
+22 23 24 25 26 27 31
+32 33 34 35 36 37 41
+42 43 44 45 46 47 11
+
+26 31 13 44 21 24 42
+17 45 23 25 41 36 11
+46 34 14 12 37 32 47
+16 43 27 35 22 33 15
+
+17 12 16 13 15 14 11
+27 22 26 23 25 24 21
+37 32 36 33 35 34 31
+47 42 46 43 45 44 41
+
+27 14 22 35 32 46 33
+13 17 36 24 44 21 15
+43 16 45 47 23 11 26
+25 37 41 34 42 12 31
+ 
+
+Sample Output
+0
+33
+60
+-1
+
+#include<cstdio>  
+#include<cstring>  
+#include<algorithm>  
+#include<queue>  
+#include<string>  
+#include<map>  
+using namespace std;  
+char buf[40];  
+struct Node{  
+    char str[40];  
+    int steps;  
+};  
+const char aimStr[]={  
+11,12 ,13 ,14 ,15 ,16 ,17 ,1,  
+21,22 ,23 ,24 ,25 ,26 ,27 ,1,  
+31,32 ,33 ,34 ,35 ,36 ,37 ,1,  
+41,42 ,43 ,44 ,45 ,46 ,47 ,1,0  
+};  
+void Move(Node &temp,int val){  
+    for(int i=0;i<40;i++){  
+        if(temp.str[i]==val){  
+            temp.str[i]=1;  
+            return;  
+        }  
+    }  
+}  
+int BFS(){  
+    Node cur,temp;  
+    strcpy(cur.str,buf);  
+    queue<Node> q;  
+    cur.steps=0;  
+    q.push(cur);  
+      
+    map<string,int>mp;  
+    int mpid=1,i,j;  
+    mp[buf]=mpid++;  
+    if(mp[aimStr]==mp[buf]) return 0;  
+    mp[aimStr]=mpid++;  
+    while(!q.empty()){  
+        cur=q.front();q.pop();  
+        for(i=1;i<32;i++){  
+            temp=cur;  
+            if(temp.str[i]==1&&temp.str[i-1]!=1&&temp.str[i-1]%10!=7){  //第一个表示此位是空的；第二个要求前一个位不是
+//空的；第三个要求前一个数不是一行的末尾。
+                Move(temp,temp.str[i-1]+1);  
+                temp.str[i]=temp.str[i-1]+1;  
+                temp.steps++;  
+                if(mp[temp.str]==mp[aimStr]) return temp.steps;  
+                  
+                if(mp[temp.str]==0){  
+                    mp[temp.str]=mpid++;  
+                    q.push(temp);  
+                }  
+            }  
+        }  
+    }  
+    return -1;  
+}  
+int main(){  
+    int T,i,j;  
+    scanf("%d",&T);  
+    while(T--){  
+        int k=0;int temp;  
+        for(i=1;i<=4;i++){  
+            buf[k++]=i*10+1;  
+            for(j=1;j<=7;j++){  
+                scanf("%d",&temp);  
+                if(temp%10==1) temp%=10;  
+                buf[k++]=temp;  
+            }  
+        }  
+        printf("%d\n",BFS());  
+    }  
+return 0;  
+}  
