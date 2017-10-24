@@ -1,3 +1,5 @@
+// 斜率优化dp HDU5956 从根出发到达一个点后选择中转消耗P，
+// 不中转连续的路径消耗是总长度的平方
 #include <bits/stdc++.h>
 typedef long long lolo;
 

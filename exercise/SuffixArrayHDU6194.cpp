@@ -1,13 +1,6 @@
-#include <iostream>
-#include <cstdio>
-#include <cstring>
-#include <algorithm>
-#include <vector>
-#include <queue>
-#include <cctype>
-#include <map>
-#include <set>
-#include <cmath>
+// 后缀数组 HDU6194
+// 题意：给出一个字符串，问其中出现k次的子串的个数有多少个*/
+#include <bits/stdc++.h>
 
 #define MIN(a,b) (a)<(b)?(a):(b)
 #define MAX(a,b) (a)>(b)?(a):(b)
@@ -114,4 +107,3 @@ int main() {
     }
     return 0;
 }
-/*题意：给出一个字符串，问其中出现k次的子串的个数有多少个*/

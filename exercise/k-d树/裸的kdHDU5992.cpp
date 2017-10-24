@@ -1,3 +1,4 @@
+// 裸kd HDU5992
 #include <bits/stdc++.h>
 
 #define MIN(a,b) (a)<(b)?(a):(b)

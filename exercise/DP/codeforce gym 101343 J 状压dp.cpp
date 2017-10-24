@@ -1,3 +1,4 @@
+// 状态压缩DP CF gym101343J
 #include <bits/stdc++.h>
 using namespace std;
 typedef long long lolo;

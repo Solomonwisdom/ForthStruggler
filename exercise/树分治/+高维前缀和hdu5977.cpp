@@ -1,3 +1,6 @@
+/*
+ * 树分治+高维前缀和hdu5977
+*/
 #include <bits/stdc++.h>
 using namespace std;
 typedef long long lolo;

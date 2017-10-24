@@ -1,3 +1,7 @@
+/*
+ * 树dpHDU6201 每个点有收益，路上有消耗，
+ * 问不定起点终点最大收益
+*/
 #include <iostream>
 #include <cstdio>
 #include <cstring>

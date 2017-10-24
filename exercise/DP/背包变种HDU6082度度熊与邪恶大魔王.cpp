@@ -1,12 +1,7 @@
-#include <iostream>
-#include <cstdio>
-#include <cstring>
-#include <algorithm>
-#include <vector>
-#include <queue>
-#include <cctype>
-#include <map>
-#include <cmath>
+/*
+ * 背包变种hdu6082
+*/
+#include <bits/stdc++.h>
 
 #define MIN(a,b) (a)<(b)?(a):(b)
 #define MAX(a,b) (a)>(b)?(a):(b)
@@ -24,7 +19,7 @@ const long long mod = 1e9 + 7;
 struct Skill {
     int c,a;
     double pr;
-    
+
 }skills[1003],skill;
 
 int hp[maxn],df[maxn];

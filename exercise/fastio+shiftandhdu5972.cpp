@@ -1,3 +1,4 @@
+//  FastIO+shiftAnd HDU5972
 #include <bits/stdc++.h>
 using namespace std;
 typedef long long lolo;

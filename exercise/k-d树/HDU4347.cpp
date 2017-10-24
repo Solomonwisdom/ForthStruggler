@@ -1,3 +1,4 @@
+// K-D树求m个最近点 HDU4347
 #include <bits/stdc++.h>
 
 #define MIN(a,b) (a)<(b)?(a):(b)

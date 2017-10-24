@@ -1,13 +1,5 @@
-#include <iostream>
-#include <cstdio>
-#include <cstring>
-#include <algorithm>
-#include <vector>
-#include <queue>
-#include <cctype>
-#include <map>
-#include <set>
-#include <cmath>
+// K-D树原始模版 HDU2966
+#include <bits/stdc++.h>
 
 #define MIN(a,b) (a)<(b)?(a):(b)
 #define MAX(a,b) (a)>(b)?(a):(b)

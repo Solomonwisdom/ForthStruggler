@@ -1,3 +1,4 @@
+// 最小割最小边sap版本 HDU6217
 #include <iostream>
 #include <cstdio>
 #include <cstring>
