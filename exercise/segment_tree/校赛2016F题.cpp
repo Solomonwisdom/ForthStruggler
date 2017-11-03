@@ -3,15 +3,7 @@
  * op = 1表示将[l, r]区间中的数字依次加上1, 2, 3, ..., r-l+1.
  * op = 2表示查询[l, r]区间中的数字的和.
 */
-#include <iostream>
-#include <cstdio>
-#include <cstring>
-#include <algorithm>
-#include <vector>
-#include <queue>
-#include <cctype>
-#include <map>
-#include <cmath>
+#include <bits/stdc++.h>
 
 #define MIN(a,b) (a)<(b)?(a):(b)
 #define MAX(a,b) (a)>(b)?(a):(b)
