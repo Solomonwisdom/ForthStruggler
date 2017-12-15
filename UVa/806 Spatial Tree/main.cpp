@@ -43,7 +43,10 @@ int main(void) {
     po[0]=1;
     for(int i=1;i<10;i++) po[i]=5*po[i-1];
 	int n,im=0,l,r,s;
+    int flag=false;
 	while(scanf("%d",&n)!=EOF&&n!=0) {
+        if(flag) putchar('\n');
+        else flag=true;
         seq.clear();
         if(n>0) {
             for(int i=0;i<n;i++)
